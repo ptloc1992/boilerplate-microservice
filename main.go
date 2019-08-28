@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"./cmd"
 	"github.com/joho/godotenv"
+	"github.com/ptloc1992/boilerplate-microservice/cmd"
 	"github.com/urfave/cli"
 )
 
@@ -16,15 +16,15 @@ func main() {
 	}
 	app := cli.NewApp()
 
-	app.Name = "Ten-Project-cua-Ban"
-	app.Usage = "Mo-ta-ve-Project-cua-ban-o-day-nhe"
-	app.Version = "v1"
+	app.Name = "Micro-service Boilerplate"
+	app.Usage = "Go Micro-service Boilerplate"
+	app.Version = "v1.0.0"
 
 	// GLOBAL OPTIONS
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:   "database, db",
-			Value:  "default:secret@/notes?charset=utf8&parseTime=True&loc=Local",
+			Value:  "root:123@/notes?charset=utf8&parseTime=True&loc=Local",
 			Usage:  "Database connection",
 			EnvVar: "DATABASE",
 		},
