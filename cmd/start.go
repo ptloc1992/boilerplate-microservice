@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/jinzhu/gorm"
+	"github.com/ptloc1992/boilerplate-microservice/handler"
 	"github.com/ptloc1992/boilerplate-microservice/server"
 	"github.com/urfave/cli"
 	"go.uber.org/fx"
@@ -14,9 +15,9 @@ import (
 
 // handleHTTPServer handles http server
 func handleHTTPServer(lc fx.Lifecycle, appContext *cli.Context, logger *log.Logger, db *gorm.DB) {
-	//irisApp := handler.BuildEngine(appContext, logger, db)
+	irisApp := handler.BuildEngine(appContext, logger, db)
 	s := server.Server{
-		//IrisApp: irisApp,
+		IrisApp: irisApp,
 		Address: appContext.String("address"),
 		Port:    appContext.String("port"),
 	}
