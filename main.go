@@ -38,10 +38,12 @@ func main() {
 
 	app.Commands = []cli.Command{
 		cmd.Start,
+		cmd.Test,
 	}
 
 	err = app.Run(os.Args)
 	if err != nil {
+		log.Panic(err)
 		log.Fatal(err)
 	}
 }
