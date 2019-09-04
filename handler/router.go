@@ -12,8 +12,8 @@ import (
 func BuildEngine(appContext *cli.Context, logger *log.Logger, db *gorm.DB) *iris.Application {
 	app := iris.Default()
 	app.Logger().SetLevel(appContext.GlobalString("loglevel"))
-	// your handler
-	// 1. healCheck
+
+	// HealCheck
 	healCheckHandlerImpl := healthCheckHandlerImpl{
 		log: logger,
 	}
@@ -26,11 +26,7 @@ func BuildEngine(appContext *cli.Context, logger *log.Logger, db *gorm.DB) *iris
 		log: logger,
 	}
 	customerHandlerImpl.inject(app)
-	// // HTTP ReqResIn service
-	// reqResInHanler := reqResInHandlerImpl{
-	// 	reqResService: service.NewReqResIn("https://reqres.in"),
-	// 	log:           logger,
-	// }
+
 	return app
 }
 
