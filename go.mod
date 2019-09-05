@@ -57,6 +57,6 @@ require (
 	golang.org/x/crypto v0.0.0-20190829043050-9756ffdc2472 // indirect
 	golang.org/x/net v0.0.0-20190827160401-ba9fcec4b297 // indirect
 	golang.org/x/sys v0.0.0-20190904154756-749cb33beabd // indirect
-	golang.org/x/tools v0.0.0-20190904213738-958971f5c2bf // indirect
+	golang.org/x/tools v0.0.0-20190905221716-4f238b926e10 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 )

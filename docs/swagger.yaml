@@ -1,4 +1,12 @@
 basePath: /v2
+definitions:
+  handler.StatusError:
+    properties:
+      code:
+        type: integer
+      err:
+        type: error
+    type: object
 host: petstore.swagger.io
 info:
   contact:
@@ -12,5 +20,30 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Swagger Example API
   version: "1.0"
-paths: {}
+paths:
+  /customers/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get customer info by ID
+      parameters:
+      - description: Some ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.StatusError'
+            type: object
+      tags:
+      - customers
 swagger: "2.0"

@@ -17,6 +17,14 @@ func (handler customerHandlerImpl) inject(app *iris.Application) {
 	group.Get("/{id:uint}", handler.get)
 }
 
+// @Description get customer info by ID
+// @Tags customers
+// @Accept  json
+// @Produce  json
+// @Param   id     path    string     true        "Some ID"
+// @Success 200 {string} string	"ok"
+// @Failure 404 {object} handler.StatusError
+// @Router /customers/get/{id} [get]
 func (handler customerHandlerImpl) get(c iris.Context) {
 	id := c.Params().GetUintDefault("id", 0)
 	customer, err := handler.customerRepo.Find(id)

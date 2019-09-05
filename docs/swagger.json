@@ -17,5 +17,57 @@
     },
     "host": "petstore.swagger.io",
     "basePath": "/v2",
-    "paths": {}
+    "paths": {
+        "/customers/get/{id}": {
+            "get": {
+                "description": "get customer info by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "customers"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Some ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/handler.StatusError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "handler.StatusError": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "err": {
+                    "type": "error"
+                }
+            }
+        }
+    }
 }
